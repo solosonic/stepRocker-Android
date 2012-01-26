@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+/****************************************************************
+*
+* Copyright (c) 2011, TRINAMIC Motion Control GmbH & Co. KG
+* All rights reserved.
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+* This sofware is published under a dual-license: GNU Lesser General
+* Public License LGPL 3 and BSD 3-clause license. The dual-license 
+* implies that users of this code may choose which terms they prefer.
+*
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions are met:
+*
+* * Redistributions of source code must retain the above copyright
+* notice, this list of conditions and the following disclaimer.
+*
+* * Redistributions in binary form must reproduce the above copyright
+* notice, this list of conditions and the following disclaimer in the
+* documentation and/or other materials provided with the distribution.
+*
+* * Neither the name of the TRINAMIC Motion Control GmbH & Co. KG nor
+* the names of its contributors may be used to endorse or promote 
+* products derived from this software without specific prior written permission.
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Lesser General Public License LGPL as
+* published by the Free Software Foundation, either version 3 of the
+* license, or (at your option) any later version or the BSD license.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Lesser General Public License LGPL and the BSD license for more details.
+*
+* You should have received a copy of the GNU Lesser General Public
+* License LGPL and BSD license along with this program.
+*
+****************************************************************/
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="horizontal"
+		android:background="#ffffffff"
+		android:weightSum="2">
+
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:orientation="vertical"
+			android:background="#ffffffff"
+			android:layout_weight="1"
+			android:weightSum="16"
+			android:layout_gravity="center_vertical">
+	
+			<ImageView android:id="@+id/imgViewLogo"
+				android:src="@drawable/step_rocker_logo"
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent"
+				android:layout_weight="1"
+				android:padding="50px">
+			</ImageView>
+			<Button 
+            	android:id="@+id/btnSelectDevice" 
+            	android:layout_width="250px"
+            	android:layout_height="wrap_content"
+            	android:text="Select device"
+            	android:textSize="30px"
+            	android:textColor="#777" 
+				android:layout_weight="1"
+				android:layout_gravity="center_horizontal"/>
+			<Button 
+            	android:id="@+id/btnExit" 
+            	android:layout_width="250px"
+            	android:layout_height="wrap_content"
+            	android:text="Exit"
+            	android:textSize="30px"
+				android:textColor="#777" 
+				android:layout_weight="1"
+				android:layout_gravity="center_horizontal"/>
+		</LinearLayout>
+		<ImageView android:id="@+id/imgViewModule"
+			android:src="@drawable/step_rocker_module"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_weight="1"
+			android:layout_gravity="center_vertical">
+		</ImageView>
+	</LinearLayout>
+
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/layoutDeviceSelector"
+    	android:orientation="vertical"
+    	android:layout_width="500px"
+	    android:layout_height="wrap_content"
+    	android:background="@drawable/device_selector_background"
+    	android:layout_centerHorizontal="true"
+    	android:layout_centerVertical="true"
+    	android:visibility="gone"
+    	android:padding="10px">
+
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    		android:orientation="vertical"
+    		android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content">
+
+	 			<TextView android:id="@+id/tvPairedDevices"
+    	    		android:layout_width="fill_parent"
+        			android:layout_height="wrap_content"
+        			android:text="Paired devices"
+    	    		android:textSize="30px"
+	        		android:textColor="#fff"
+        			android:paddingLeft="5dp"
+        			android:background="@drawable/text_view_background">
+				</TextView>
+         
+    			<ListView android:id="@+id/pairedDevices"
+	        		android:layout_width="wrap_content"
+        			android:layout_height="200px"
+        			android:stackFromBottom="false">
+				</ListView>
+			</LinearLayout>
+			
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    			android:orientation="vertical"
+    			android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content">			
+    			<TextView android:id="@+id/tvNewDevices"
+        			android:layout_width="fill_parent"
+	        		android:layout_height="wrap_content"
+		        	android:text="New devices"
+    		    	android:textSize="30px"
+        			android:background="@drawable/text_view_background"
+	        		android:textColor="#fff"
+    	    		android:paddingLeft="5dp">
+				</TextView>          
+    			<ListView android:id="@+id/newDevices"
+        			android:layout_width="wrap_content"
+        			android:layout_height="200px"
+        			android:stackFromBottom="false">
+				</ListView>
+   			</LinearLayout>
+   		
+   		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   			android:id="@+id/layoutScan"
+    		android:orientation="horizontal"
+    		android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+    		android:background="#ffffffff"
+    		android:layout_centerHorizontal="true"
+    		android:layout_gravity="center_horizontal">
+   			<Button android:id="@+id/btnScanDevices"
+	       		android:text="Scan devices"
+    	   		android:textSize="30px"
+				android:textColor="#777" 
+    		   	android:layout_width="wrap_content"
+		       	android:layout_height="wrap_content">
+			</Button>
+   			<Button android:id="@+id/btnCancelScan"
+       			android:text="Cancel"
+       			android:textSize="30px"
+				android:textColor="#777" 
+       			android:layout_width="wrap_content"
+       			android:layout_height="wrap_content">
+			</Button>
+		</LinearLayout>
+		
+	</LinearLayout>
+</RelativeLayout>
